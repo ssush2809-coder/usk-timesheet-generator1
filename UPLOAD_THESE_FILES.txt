@@ -1,0 +1,12 @@
+Upload these files directly into the main/root of your GitHub repo:
+
+app.py
+storage.py
+timesheet_engine.py
+requirements.txt
+runtime.txt
+default_overlay_config.json
+README.md
+template.pdf
+
+Then in Streamlit, reboot/redeploy the app.

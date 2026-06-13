@@ -1,0 +1,186 @@
+{
+  "page_index": 0,
+  "notes": "Coordinates are relative to the PDF page. x/y/w/h values are fractions from 0 to 1, measured from the top-left corner. The original PDF remains the background/template; these fields are only overlays.",
+  "defaults": {
+    "font_normal": "tiro",
+    "font_bold": "tibo",
+    "text_size": 10.5,
+    "date_size": 9.5,
+    "hours_size": 10.5,
+    "text_color": [
+      0,
+      0,
+      0
+    ]
+  },
+  "fields": {
+    "employee_name": {
+      "x": 0.218,
+      "y": 0.34,
+      "w": 0.308,
+      "h": 0.03,
+      "align": "center",
+      "font": "tiro",
+      "size": 10.5
+    },
+    "reporting_week": {
+      "x": 0.65,
+      "y": 0.34,
+      "w": 0.33,
+      "h": 0.03,
+      "align": "center",
+      "font": "tiro",
+      "size": 10.0
+    },
+    "supervisor_name": {
+      "x": 0.218,
+      "y": 0.37,
+      "w": 0.308,
+      "h": 0.03,
+      "align": "center",
+      "font": "tiro",
+      "size": 10.5
+    },
+    "total_hours": {
+      "x": 0.65,
+      "y": 0.37,
+      "w": 0.33,
+      "h": 0.03,
+      "align": "center",
+      "font": "tibo",
+      "size": 10.5
+    },
+    "monday_date": {
+      "x": 0.205,
+      "y": 0.503,
+      "w": 0.108,
+      "h": 0.024,
+      "align": "center",
+      "font": "tiro",
+      "size": 8.7
+    },
+    "tuesday_date": {
+      "x": 0.315,
+      "y": 0.503,
+      "w": 0.108,
+      "h": 0.024,
+      "align": "center",
+      "font": "tiro",
+      "size": 8.7
+    },
+    "wednesday_date": {
+      "x": 0.425,
+      "y": 0.503,
+      "w": 0.108,
+      "h": 0.024,
+      "align": "center",
+      "font": "tiro",
+      "size": 8.7
+    },
+    "thursday_date": {
+      "x": 0.535,
+      "y": 0.503,
+      "w": 0.108,
+      "h": 0.024,
+      "align": "center",
+      "font": "tiro",
+      "size": 8.7
+    },
+    "friday_date": {
+      "x": 0.645,
+      "y": 0.503,
+      "w": 0.108,
+      "h": 0.024,
+      "align": "center",
+      "font": "tiro",
+      "size": 8.7
+    },
+    "saturday_date": {
+      "x": 0.755,
+      "y": 0.503,
+      "w": 0.108,
+      "h": 0.024,
+      "align": "center",
+      "font": "tiro",
+      "size": 8.7
+    },
+    "sunday_date": {
+      "x": 0.865,
+      "y": 0.503,
+      "w": 0.108,
+      "h": 0.024,
+      "align": "center",
+      "font": "tiro",
+      "size": 8.7
+    },
+    "monday_hours": {
+      "x": 0.205,
+      "y": 0.536,
+      "w": 0.108,
+      "h": 0.027,
+      "align": "center",
+      "font": "tiro",
+      "size": 10.0
+    },
+    "tuesday_hours": {
+      "x": 0.315,
+      "y": 0.536,
+      "w": 0.108,
+      "h": 0.027,
+      "align": "center",
+      "font": "tiro",
+      "size": 10.0
+    },
+    "wednesday_hours": {
+      "x": 0.425,
+      "y": 0.536,
+      "w": 0.108,
+      "h": 0.027,
+      "align": "center",
+      "font": "tiro",
+      "size": 10.0
+    },
+    "thursday_hours": {
+      "x": 0.535,
+      "y": 0.536,
+      "w": 0.108,
+      "h": 0.027,
+      "align": "center",
+      "font": "tiro",
+      "size": 10.0
+    },
+    "friday_hours": {
+      "x": 0.645,
+      "y": 0.536,
+      "w": 0.108,
+      "h": 0.027,
+      "align": "center",
+      "font": "tiro",
+      "size": 10.0
+    },
+    "saturday_hours": {
+      "x": 0.755,
+      "y": 0.536,
+      "w": 0.108,
+      "h": 0.027,
+      "align": "center",
+      "font": "tiro",
+      "size": 10.0
+    },
+    "sunday_hours": {
+      "x": 0.865,
+      "y": 0.536,
+      "w": 0.108,
+      "h": 0.027,
+      "align": "center",
+      "font": "tiro",
+      "size": 10.0
+    },
+    "employee_signature": {
+      "x": 0.272,
+      "y": 0.713,
+      "w": 0.165,
+      "h": 0.032
+    }
+  }
+}
