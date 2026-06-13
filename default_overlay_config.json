@@ -50,69 +50,13 @@
       "font": "tibo",
       "size": 10.5
     },
-    "monday_date": {
-      "x": 0.205,
-      "y": 0.503,
-      "w": 0.108,
-      "h": 0.024,
-      "align": "center",
-      "font": "tiro",
-      "size": 8.7
-    },
-    "tuesday_date": {
-      "x": 0.315,
-      "y": 0.503,
-      "w": 0.108,
-      "h": 0.024,
-      "align": "center",
-      "font": "tiro",
-      "size": 8.7
-    },
-    "wednesday_date": {
-      "x": 0.425,
-      "y": 0.503,
-      "w": 0.108,
-      "h": 0.024,
-      "align": "center",
-      "font": "tiro",
-      "size": 8.7
-    },
-    "thursday_date": {
-      "x": 0.535,
-      "y": 0.503,
-      "w": 0.108,
-      "h": 0.024,
-      "align": "center",
-      "font": "tiro",
-      "size": 8.7
-    },
-    "friday_date": {
-      "x": 0.645,
-      "y": 0.503,
-      "w": 0.108,
-      "h": 0.024,
-      "align": "center",
-      "font": "tiro",
-      "size": 8.7
-    },
-    "saturday_date": {
-      "x": 0.755,
-      "y": 0.503,
-      "w": 0.108,
-      "h": 0.024,
-      "align": "center",
-      "font": "tiro",
-      "size": 8.7
-    },
-    "sunday_date": {
-      "x": 0.865,
-      "y": 0.503,
-      "w": 0.108,
-      "h": 0.024,
-      "align": "center",
-      "font": "tiro",
-      "size": 8.7
-    },
+   "monday_date": {"x": 0.205, "y": 0.515, "w": 0.108, "h": 0.024, "align": "center", "font": "tiro", "size": 8.4},
+"tuesday_date": {"x": 0.315, "y": 0.515, "w": 0.108, "h": 0.024, "align": "center", "font": "tiro", "size": 8.4},
+"wednesday_date": {"x": 0.425, "y": 0.515, "w": 0.108, "h": 0.024, "align": "center", "font": "tiro", "size": 8.4},
+"thursday_date": {"x": 0.535, "y": 0.515, "w": 0.108, "h": 0.024, "align": "center", "font": "tiro", "size": 8.4},
+"friday_date": {"x": 0.645, "y": 0.515, "w": 0.108, "h": 0.024, "align": "center", "font": "tiro", "size": 8.4},
+"saturday_date": {"x": 0.755, "y": 0.515, "w": 0.108, "h": 0.024, "align": "center", "font": "tiro", "size": 8.4},
+"sunday_date": {"x": 0.865, "y": 0.515, "w": 0.108, "h": 0.024, "align": "center", "font": "tiro", "size": 8.4},
     "monday_hours": {
       "x": 0.205,
       "y": 0.536,
@@ -176,11 +120,6 @@
       "font": "tiro",
       "size": 10.0
     },
-    "employee_signature": {
-      "x": 0.272,
-      "y": 0.713,
-      "w": 0.165,
-      "h": 0.032
-    }
+    "employee_signature": {"x": 0.285, "y": 0.715, "w": 0.115, "h": 0.030}
   }
 }
