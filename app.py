@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any, Dict
 
 import streamlit as st
-from PIL import Image, ImageChops
+from PIL import Image, ImageOps
 
 from storage import DATA_DIR, OUTPUT_DIR, add_history_record, init_db, list_history, load_profile, save_profile
 from timesheet_engine import (
@@ -48,53 +48,74 @@ def find_saved_signature() -> Path | None:
 
 
 def _trim_transparent_edges(img: Image.Image) -> Image.Image:
-    if img.mode != "RGBA":
-        img = img.convert("RGBA")
+    img = img.convert("RGBA")
     alpha = img.getchannel("A")
     bbox = alpha.getbbox()
+
     if bbox:
-        img = img.crop(bbox)
+        return img.crop(bbox)
+
     return img
 
 
+def _remove_background(img: Image.Image) -> Image.Image:
+    img = ImageOps.exif_transpose(img).convert("RGBA")
 
-def _remove_background(img: Image.Image, threshold: int = 238, softness: int = 25) -> Image.Image:
-    img = img.convert("RGBA")
-    pixels = img.load()
     width, height = img.size
+    pixels = img.load()
+
+    cleaned = Image.new("RGBA", (width, height), (255, 255, 255, 0))
+    output = cleaned.load()
+
     for y in range(height):
         for x in range(width):
             r, g, b, a = pixels[x, y]
-            brightness = (r + g + b) / 3
-            min_channel = min(r, g, b)
-            max_channel = max(r, g, b)
-            if brightness >= threshold and (max_channel - min_channel) < 40:
-                pixels[x, y] = (255, 255, 255, 0)
-            elif brightness >= threshold - softness:
-                new_alpha = max(0, min(255, int((threshold - brightness) / softness * 255)))
-                pixels[x, y] = (r, g, b, min(a, new_alpha))
-    return img
 
+            brightness = (r + g + b) / 3
+            saturation = max(r, g, b) - min(r, g, b)
+
+            # Keep only actual pen/signature strokes.
+            is_dark_ink = brightness < 145
+            is_blue_or_colored_ink = saturation > 35 and brightness < 210
+
+            if is_dark_ink or is_blue_or_colored_ink:
+                # Make signature pure black like the sample you showed.
+                output[x, y] = (0, 0, 0, 255)
+            else:
+                # Remove background completely.
+                output[x, y] = (255, 255, 255, 0)
+
+    return cleaned
 
 
 def process_signature(uploaded_file, remove_background: bool = True, trim_edges: bool = True) -> Path:
     try:
         img = Image.open(uploaded_file)
     except Exception as exc:
-        raise ValueError("Unsupported signature file. Please upload an image file.") from exc
+        raise ValueError("Unsupported signature file. Please upload PNG, JPG, JPEG, WEBP, BMP, TIFF, HEIC, or HEIF.") from exc
 
-    img = img.convert("RGBA")
+    img = ImageOps.exif_transpose(img).convert("RGBA")
+
     if remove_background:
         img = _remove_background(img)
+
     if trim_edges:
         img = _trim_transparent_edges(img)
 
-    # Ensure a little padding so the signature does not touch the edges.
-    bg = Image.new("RGBA", (img.width + 24, img.height + 16), (255, 255, 255, 0))
-    bg.paste(img, (12, 8), img)
-    bg.save(SIGNATURE_PATH)
-    return SIGNATURE_PATH
+    # Small transparent padding around the ink.
+    padding_x = 8
+    padding_y = 5
 
+    padded = Image.new(
+        "RGBA",
+        (img.width + padding_x * 2, img.height + padding_y * 2),
+        (255, 255, 255, 0),
+    )
+
+    padded.paste(img, (padding_x, padding_y), img)
+    padded.save(SIGNATURE_PATH)
+
+    return SIGNATURE_PATH
 
 
 def get_payload_defaults(history_payload: Dict[str, Any] | None, profile: Dict[str, Any]) -> Dict[str, Any]:
